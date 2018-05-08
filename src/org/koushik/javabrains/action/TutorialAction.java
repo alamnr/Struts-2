@@ -18,6 +18,18 @@ public class TutorialAction {
 		System.out.println(getLanguage());
 		return "success";
 	}
+	
+	public String getTutorial(){
+		System.out.println("Get Tutorial method get executed");
+		return "success";
+	}
+	
+	public String addTutorial(){
+		System.out.println("Add tutorial method get executed");
+		return "success";
+	}
+
+	
 
 	public String getBestTutorialSite() {
 		return bestTutorialSite;
