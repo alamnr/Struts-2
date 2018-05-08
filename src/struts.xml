@@ -10,15 +10,24 @@
 <include file="login.xml"/>
 
 <package name="default"  namespace="/tutorials"   extends="struts-default">
-	<action name="getTutorial" class="org.koushik.javabrains.action.TutorialAction">
+	<!-- <action name="getTutorial" class="org.koushik.javabrains.action.TutorialAction">
+		<result name="success">/success.jsp</result>
+		<result name="failure">/error.jsp</result>
+	</action> -->
+	
+	<action name="get*" class="org.koushik.javabrains.action.{1}Action">
 		<result name="success">/success.jsp</result>
 		<result name="failure">/error.jsp</result>
 	</action>
 </package>
 
 <package name="search" namespace="/" extends="struts-default">
-	<action name="searchForm">
+	<!-- <action name="searchForm">
 		<result>/searchForm.jsp</result>
+		
+	</action> -->
+	<action name="search*">  <!-- Whatever matched in * will be substituted in {1} -->
+		<result>/search{1}.jsp</result>
 		
 	</action>
 </package>
