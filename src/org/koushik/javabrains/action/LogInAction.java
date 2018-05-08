@@ -1,9 +1,13 @@
 package org.koushik.javabrains.action;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 import com.sun.net.httpserver.Authenticator.Success;
 
-public class LogInAction  implements Action {
+
+public class LogInAction  extends ActionSupport {
 	
 	private String userId;
 	private String password;
@@ -17,12 +21,23 @@ public class LogInAction  implements Action {
 		if(getUserId().equals("userId") && getPassword().equals("password")){
 			//return "success";
 			return SUCCESS;
-			
-			
+				
 		}
 		//return "failure";
 		return LOGIN;
 		
+	}
+	
+	public void validate(){
+		if (StringUtils.isEmpty(getUserId())){
+			// user id blank
+			addFieldError("userId", "User ID can't be blank");
+		}
+		
+		if (StringUtils.isEmpty(getPassword())){
+			// password blank
+			addFieldError("password", "Password can't be blank");
+		}
 	}
 
 	public String getUserId() {
