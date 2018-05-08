@@ -5,17 +5,21 @@
 	
 <struts>
 
-<package name="default" extends="struts-default">
+<!-- Second best practice is to include different package in separate file  -->
+
+<include file="login.xml"/>
+
+<package name="default"  namespace="/tutorials"   extends="struts-default">
 	<action name="getTutorial" class="org.koushik.javabrains.action.TutorialAction">
 		<result name="success">/success.jsp</result>
 		<result name="failure">/error.jsp</result>
 	</action>
 </package>
 
-<package name="default"  namespace="/tutorial"   extends="struts-default">
-	<action name="getTutorial" class="org.koushik.javabrains.action.TutorialAction">
-		<result name="success">/success.jsp</result>
-		<result name="failure">/error.jsp</result>
+<package name="search" namespace="/" extends="struts-default">
+	<action name="searchForm">
+		<result>/searchForm.jsp</result>
+		
 	</action>
 </package>
 
